@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gourmet Coffee Beans</title>
+    <link rel="stylesheet" href="style-home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+            @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); 
+ 
+ /* Base Styles */
+  :root {
+     --primary: #3a2e26;
+     --secondary: #6f4e37;
+     --accent: #c0a080;
+     --light: #f5f0eb;
+     --gold: #d4af37;
+ }
+ 
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: 'Poppins', sans-serif;
+ }
+ 
+ body {
+     background-color: var(--light);
+     color: var(--primary);
+     overflow-x: hidden;
+     line-height: 1.6;
+ }
+ 
+ h1, h2, h3, h4 {
+     font-weight: 700;
+     color: var(--primary);
+ }
+ 
+ a {
+     text-decoration: none;
+     color: inherit;
+ }
+ 
+ img {
+     max-width: 100%;
+     height: auto;
+ }
+ 
+ /* Header Styles */
+ header {
+     background-color: rgba(58, 46, 38, 0.9);
+     position: fixed;
+     width: 100%;
+     z-index: 1000;
+     padding: 1.5rem 5%;
+     transition: all 0.3s ease;
+ }
+ 
+ header.scrolled {
+     background-color: var(--primary);
+     padding: 1rem 5%;
+     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .logo {
+     font-family: var(--font-main);
+     font-size: 1.8rem;
+     color: var(--gold);
+     letter-spacing: 1px;
+ }
+ 
+ nav {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+ }
+ 
+ .nav-links {
+     display: flex;
+     gap: 2rem;
+ }
+ 
+ .nav-links a {
+     color: var(--light);
+     font-weight: 500;
+     position: relative;
+     transition: all 0.3s ease;
+ }
+ 
+ .nav-links a::after {
+     content: '';
+     position: absolute;
+     width: 0;
+     height: 2px;
+     bottom: -5px;
+     left: 0;
+     background-color: var(--gold);
+     transition: width 0.3s ease;
+ }
+ 
+ .nav-links a:hover::after {
+     width: 100%;
+ }
+ 
+ .mobile-menu-btn {
+     display: none;
+     cursor: pointer;
+     font-size: 1.5rem;
+     color: var(--light);
+ }
+ 
+ /* Hero Section */
+ .hero {
+     height: 100vh;
+     background: linear-gradient(rgba(58, 46, 38, 0.5), rgba(58, 46, 38, 0.3)), 
+                 url('media/coffee_beans.jpg') center/cover no-repeat;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     text-align: center;
+     padding: 0 5%;
+     position: relative;
+ }
+ 
+ .hero-content {
+     max-width: 800px;
+     color: var(--light);
+     opacity: 0;
+     transform: translateY(50px);
+     transition: all 1s ease;
+ }
+ 
+ .hero-content.animate {
+     opacity: 1;
+     transform: translateY(0);
+ }
+ 
+ .hero h1 {
+     font-size: 3.5rem;
+     margin-bottom: 1.5rem;
+     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+     color: var(--light);
+ }
+ 
+ .hero p {
+     font-size: 1.2rem;
+     margin-bottom: 2rem;
+     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+ }
+ 
+ .btn {
+     display: inline-block;
+     padding: 0.8rem 2rem;
+     background-color: var(--gold);
+     color: var(--primary);
+     border-radius: 50px;
+     font-weight: 600;
+     transition: all 0.3s ease;
+     border: 2px solid var(--gold);
+ }
+ 
+ .btn-outline {
+     background-color: transparent;
+     color: var(--gold);
+     border: 2px solid var(--gold);
+     margin-left: 1rem;
+ }
+ 
+ .btn:hover {
+     transform: translateY(-3px);
+     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .btn-outline:hover {
+     background-color: var(--gold);
+     color: var(--primary);
+ }
+ 
+ .scroll-down {
+     position: absolute;
+     bottom: 2rem;
+     left: 50%;
+     transform: translateX(-50%);
+     color: var(--light);
+     font-size: 1.5rem;
+     cursor: pointer;
+     animation: bounce 2s infinite;
+ }
+ 
+ @keyframes bounce {
+     0%, 20%, 50%, 80%, 100% {
+         transform: translateY(0) translateX(-50%);
+     }
+     40% {
+         transform: translateY(-20px) translateX(-50%);
+     }
+     60% {
+         transform: translateY(-10px) translateX(-50%);
+     }
+ }
+ 
+ /* About Section */
+ .about {
+     padding: 5rem 5%;
+     background-color: var(--light);
+ }
+ 
+ .section-title {
+     text-align: center;
+     margin-bottom: 3rem;
+ }
+ 
+ .section-title h2 {
+     font-size: 2.5rem;
+     position: relative;
+     display: inline-block;
+     padding-bottom: 1rem;
+ }
+ 
+ .section-title h2::after {
+     content: '';
+     position: absolute;
+     width: 50px;
+     height: 3px;
+     background-color: var(--gold);
+     bottom: 0;
+     left: 50%;
+     transform: translateX(-50%);
+ }
+ 
+ .about-content {
+     display: flex;
+     flex-wrap: wrap;
+     align-items: center;
+     gap: 3rem;
+ }
+ 
+ .about-text {
+     flex: 1;
+     min-width: 300px;
+     text-align: justify;
+ }
+ 
+ .about-text h3 {
+     font-size: 1.8rem;
+     margin-bottom: 1.5rem;
+     color: var(--secondary);
+ }
+ 
+ .about-image {
+     flex: 1;
+     min-width: 300px;
+     position: relative;
+     height: 500px;
+     overflow: hidden;
+     border-radius: 10px;
+     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .about-image img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     transition: transform 0.5s ease;
+ }
+ 
+ .about-image:hover img {
+     transform: scale(1.05);
+ }
+ 
+ /* Products Section */
+ .products {
+     padding: 5rem 5%;
+     background-color: white;
+ }
+ 
+ .products-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+     gap: 2rem;
+     margin-top: 2rem;
+ }
+ 
+ .product-card {
+     background-color: var(--light);
+     border-radius: 10px;
+     overflow: hidden;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+     transition: all 0.3s ease;
+     opacity: 0;
+     transform: translateY(30px);
+ }
+ 
+ .product-card.animate {
+     opacity: 1;
+     transform: translateY(0);
+ }
+ 
+ .product-card:hover {
+     transform: translateY(-10px);
+     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .product-image {
+     height: 250px;
+     overflow: hidden;
+ }
+ 
+ .product-image img {
+     width: 100%;
+     height: 100%;
+     object-fit: cover;
+     transition: transform 0.5s ease;
+ }
+ 
+ .product-card:hover .product-image img {
+     transform: scale(1.1);
+ }
+ 
+ .product-info {
+     padding: 1.5rem;
+ }
+ 
+ .product-info h3 {
+     font-size: 1.3rem;
+     margin-bottom: 0.5rem;
+     color: var(--secondary);
+ }
+ 
+ .product-origin {
+     font-size: 0.9rem;
+     color: var(--accent);
+     margin-bottom: 1rem;
+ }
+ 
+ .product-description {
+     margin-bottom: 1.5rem;
+     color: #555;
+ }
+ 
+ .product-price {
+     font-weight: 600;
+     font-size: 1.2rem;
+     color: var(--primary);
+ }
+ 
+ /* Process Section */
+ .process {
+     padding: 5rem 5%;
+     background-color: var(--light);
+ }
+ 
+ .process-steps {
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 2rem;
+     margin-top: 3rem;
+ }
+ 
+ .step {
+     flex: 1;
+     min-width: 250px;
+     max-width: 300px;
+     text-align: center;
+     padding: 2rem;
+     background-color: white;
+     border-radius: 10px;
+     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+     transition: all 0.3s ease;
+     opacity: 0;
+     transform: translateY(30px);
+     position: relative;
+ }
+ 
+ .step.animate {
+     opacity: 1;
+     transform: translateY(0);
+ }
+ 
+ .step:hover {
+     transform: translateY(-10px);
+     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+ }
+ 
+ .step-number {
+     width: 50px;
+     height: 50px;
+     background-color: var(--gold);
+     color: var(--primary);
+     border-radius: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 1.5rem;
+     font-weight: 600;
+     margin: 0 auto 1.5rem;
+ }
+ 
+ .step h3 {
+     margin-bottom: 1rem;
+     color: var(--secondary);
+ }
+ 
+ /* Testimonials */
+ .testimonials {
+     padding: 5rem 5%;
+     background-color: white;
+ }
+ 
+ .testimonials-slider {
+     max-width: 1000px;
+     margin: 3rem auto 0;
+     overflow: hidden;
+     position: relative;
+ }
+ 
+ .testimonials-track {
+     display: flex;
+     transition: transform 0.5s ease;
+ }
+ 
+ .testimonial {
+     min-width: 100%;
+     padding: 2rem;
+     text-align: center;
+ }
+ 
+ .testimonial-content {
+     font-style: italic;
+     font-size: 1.1rem;
+     line-height: 1.8;
+     margin-bottom: 1.5rem;
+     position: relative;
+ }
+ 
+ .testimonial-content::before,
+ .testimonial-content::after {
+     content: '"';
+     font-size: 3rem;
+     color: var(--gold);
+     opacity: 0.3;
+     position: absolute;
+ }
+ 
+ .testimonial-content::before {
+     top: -20px;
+     left: 10px;
+ }
+ 
+ .testimonial-content::after {
+     bottom: -40px;
+     right: 10px;
+ }
+ 
+ .testimonial-author {
+     font-weight: 600;
+     margin-bottom: 0.5rem;
+ }
+ 
+ .author-position {
+     font-size: 0.9rem;
+     color: #777;
+ }
+ 
+ .slider-nav {
+     display: flex;
+     justify-content: center;
+     gap: 1rem;
+     margin-top: 2rem;
+ }
+ 
+ .slider-dot {
+     width: 12px;
+     height: 12px;
+     background-color: #ddd;
+     border-radius: 50%;
+     cursor: pointer;
+     transition: all 0.3s ease;
+ }
+ 
+ .slider-dot.active {
+     background-color: var(--gold);
+ }
+ 
+ /* Newsletter */
+ .newsletter {
+     padding: 5rem 5%;
+     background-color: var(--secondary);
+     color: var(--light);
+     text-align: center;
+ }
+ 
+ .newsletter h2 {
+     color: var(--light);
+     margin-bottom: 1.5rem;
+ }
+ 
+ .newsletter p {
+     margin-bottom: 2rem;
+     max-width: 600px;
+     margin-left: auto;
+     margin-right: auto;
+ }
+ 
+ .newsletter-form {
+     display: flex;
+     max-width: 500px;
+     margin: 0 auto;
+ }
+ 
+ .newsletter-input {
+     flex: 1;
+     padding: 0.8rem 1.5rem;
+     border: none;
+     border-radius: 50px 0 0 50px;
+     font-family: inherit;
+     outline: none;
+ }
+ 
+ .newsletter-btn {
+     padding: 0.8rem 2rem;
+     background-color: var(--gold);
+     color: var(--primary);
+     border: none;
+     border-radius: 0 50px 50px 0;
+     font-weight: 600;
+     cursor: pointer;
+     transition: all 0.3s ease;
+ }
+ 
+ .newsletter-btn:hover {
+     background-color: #e6c65d;
+ }
+ 
+ /* Footer */
+ footer {
+     background-color: var(--primary);
+     color: var(--light);
+     padding: 3rem 5%;
+ }
+ 
+ .footer-content {
+     display: flex;
+     flex-wrap: wrap;
+     gap: 3rem;
+     margin-bottom: 2rem;
+ }
+ 
+ .footer-col {
+     flex: 1;
+     min-width: 200px;
+ }
+ 
+ .footer-logo {
+     font-family: var(--font-main);
+     font-size: 1.8rem;
+     color: var(--gold);
+     margin-bottom: 1rem;
+ }
+ 
+ .footer-col h3 {
+     font-size: 1.3rem;
+     margin-bottom: 1.5rem;
+     position: relative;
+     padding-bottom: 0rem;
+     color: var(--gold);
+ }
+ 
+ .footer-col h3::after {
+     content: '';
+     position: absolute;
+     width: 30px;
+     height: 2px;
+     background-color: var(--gold);
+     bottom: 0;
+     left: 0;
+ }
+ 
+ .footer-links {
+     list-style: none;
+ }
+ 
+ .footer-links li {
+     margin-bottom: 0.8rem;
+ }
+ 
+ .footer-links a {
+     transition: color 0.3s ease;
+ }
+ 
+ .footer-links a:hover {
+     color: var(--gold);
+ }
+ 
+ .social-links {
+     display: flex;
+     gap: 1rem;
+     margin-top: 1.5rem;
+ }
+ 
+ .social-links a {
+     width: 40px;
+     height: 40px;
+     background-color: rgba(255, 255, 255, 0.1);
+     border-radius: 50%;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     transition: all 0.3s ease;
+ }
+ 
+ .social-links a:hover {
+     background-color: var(--gold);
+     color: var(--primary);
+ }
+ 
+ .footer-bottom {
+     text-align: center;
+     padding-top: 2rem;
+     border-top: 1px solid rgba(255, 255, 255, 0.1);
+     font-size: 0.9rem;
+ }
+ 
+ /* Animations */
+ @keyframes fadeIn {
+     from { opacity: 0; }
+     to { opacity: 1; }
+ }
+ 
+ /* Responsive Styles */
+ @media (max-width: 992px) {
+     .hero h1 {
+         font-size: 3rem;
+     }
+ 
+     .about-content {
+         flex-direction: column;
+     }
+ 
+     .about-image {
+         order: -1;
+         height: 400px;
+         width: 100%;
+     }
+ }
+ 
+ @media (max-width: 768px) {
+     .mobile-menu-btn {
+         display: block;
+     }
+ 
+     .nav-links {
+         position: fixed;
+         top: 80px;
+         left: -100%;
+         width: 100%;
+         height: calc(100vh - 80px);
+         background-color: var(--primary);
+         flex-direction: column;
+         align-items: center;
+         padding: 2rem 0;
+         transition: all 0.5s ease;
+     }
+ 
+     .nav-links.active {
+         left: 0;
+     }
+ 
+     .hero h1 {
+         font-size: 2.5rem;
+     }
+ 
+     .hero p {
+         font-size: 1rem;
+     }
+ 
+     .btn {
+         padding: 0.7rem 1.5rem;
+         font-size: 0.9rem;
+     }
+ 
+     .section-title h2 {
+         font-size: 2rem;
+     }
+ 
+     .newsletter-form {
+         flex-direction: column;
+     }
+ 
+     .newsletter-input {
+         border-radius: 50px;
+         margin-bottom: 1rem;
+     }
+ 
+     .newsletter-btn {
+         border-radius: 50px;
+     }
+ }
+ 
+ @media (max-width: 576px) {
+     .hero h1 {
+         font-size: 2rem;
+     }
+ 
+     .step {
+         min-width: 100%;
+     }
+ 
+     .footer-col {
+         min-width: 100%;
+         margin-bottom: 2rem;
+     }
+ 
+     .footer-col:last-child {
+         margin-bottom: 0;
+     }
+ }
+    </style>
+
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <div class="logo">PT. BIJI KOPI<span style="color: var(--light)"> INTERNASIONAL</span></div>
+            <div class="mobile-menu-btn" id="mobileMenuBtn">☰</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Tentang Kami</a></li>
+                <li><a href="#focus">Fokus</a></li>
+                <li><a href="#products">Produk</a></li>
+                <li><a href="#plan">Plan</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Biji Kopi Berkualitas Tinggi</h1>
+            <p>Menemukan rasa kopi terbaik dari perkebunan organik terpilih di seluruh dunia. Setiap biji kami dipilih dengan cermat untuk memberikan pengalaman kopi yang tak terlupakan.</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn">Belanja Sekarang</a>
+                <a href="#about" class="btn btn-outline">Pelajari Lebih</a>
+            </div>
+        </div>
+        <div class="scroll-down" id="scrollDown">↓</div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="section-title">
+            <h2>Tentang Kopi Kami</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Warisan Rasa yang Kaya</h3>
+                <p>PT. Biji Kopi Internasional menjalin kerja sama langsung dengan para petani lokal yang tersebar di berbagai daerah di Indonesia. Kolaborasi ini bertujuan untuk memastikan bahwa setiap biji kopi yang kami hasilkan memiliki kualitas unggul dan memenuhi standar terbaik. Kami percaya bahwa hubungan yang erat dan berkelanjutan dengan petani adalah kunci utama dalam menjaga cita rasa otentik dan keaslian kopi nusantara. Oleh karena itu, kami secara aktif terlibat dalam setiap tahap produksi, mulai dari proses penanaman, panen, hingga pasca-panen. Semua upaya ini kami lakukan demi memberikan produk terbaik bagi para pelanggan setia kami, yang selalu mengandalkan dan menikmati cita rasa khas dari kopi kami.                </p>
+            </div>
+            <div class="about-image">
+                <img src="media/unpeeled_beans.jpg" alt="Perkebunan kopi organik di pegunungan dengan tanaman kopi berdaun hijau subur dan keadaan cerah di latar belakang" />
+            </div>
+        </div>
+    </section>
+
+    <section class="process" id="focus">
+        <div class="section-title">
+            <h2>Fokus Kami</h2>
+        </div>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Produksi dan Kualitas</h3>
+                <p>Memonitor langsung untuk menjaga kualitas dan
+                    kuantitas produksi, untuk bersaing di dalam dan
+                    luar negeri.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Harga</h3>
+                <p>Menjaga kestabilan harga baik dari harga biji
+                    mentah sampai biji sangrai. yang dapat
+                    menjangkau ke semua kalangan. baik dati
+                    konsumen langsung sampai kebutuhan b2b.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Perluasan Pasar</h3>
+                <p>Permintaan kopi saat ini yang terus bertambah,
+                    maka kami memprioritaskan pada tetap
+                    memperluas pasar hingga konsumen
+                    mancanegara dengan meng ekspor produk yang
+                    kami miliki.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="products" id="products">
+        <div class="section-title">
+            <h2>Produk Kami</h2>
+        </div>
+        <div class="products-grid">
+            <a href="index-twoseasons.html">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="media/2s.png" alt="Biji kopi Arabica Ethiopia berwarna cokelat gelap dengan tekstur halus dan mengkilap" />
+                </div>
+                <div class="product-info">
+                    <h3>TwoSeasons Coffee</h3>
+                    <p class="product-description">Biji kopi dengan rasa fruity yang kompleks, notes blueberry yang jelas, dan finish yang bersih.</p>
+                </div>
+            </div>
+        </a>
+        <a href="index-soulcup.html">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="media/soulcup.png" alt="Biji kopi Colombia Supremo berwarna cokelat sedang tersebar di atas permukaan kayu" />
+                </div>
+                <div class="product-info">
+                    <h3>Soulcup Coffee</h3>
+                    <p class="product-description">Rasa seimbang dengan keasaman lembut, notes kacang almond dan cokelat susu.</p>
+                </div>
+            </div>
+        </a>
+        
+        </div>
+    </section>
+
+    <section class="process" id="plan">
+        <div class="section-title">
+            <h2>Business Plan</h2>
+        </div>
+        <div class="process-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Visi</h3>
+                <p>Menumbuhkan komoditas pecinta kopi dalam
+                    skala lokal dan internasional.
+                    Berhubungan langsung dengan banyak petani
+                    dari seluruh daerah di Indonesia.
+                    Dan, menyediakan biji kopi berkualitas premium
+                    untuk para pelanggan kami.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Misi</h3>
+                <p>Memperluas keberagaman jenis, varietas, serta
+                    kualitas dan harga yang baik.
+                    Memperkenalkan kopi Indonesia lebih luas lagi,
+                    baik kebutuhan lokal dan pasar luar negeri.
+                    Berkolaborasi dengan lebih banyak pihak untuk
+                    memperkanalkan kopi yang kami jual ke semua
+                    kalangan.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>Tujuan</h3>
+                <p>Tujuan kami adalah memperluas segmen pasar,
+                    karna dengan produk-produk premium yang
+                    kami jual, para pelanggan kami dapat
+                    mendapatkan kualitas yang sangat baik dengan
+                    harga yang dapat di jangkau.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Nilai</h3>
+                <p>Nilai unggul kami pada produk-produk premium
+                    yang di hasilkan dari para petani-petani di
+                    berbagai daerah dan langsung di proses
+                    dengan para prosesor yang sangat
+                    berpengalaman. dengan ini kami dapat
+                    menghasilkan berbagai macam produk
+                    unggulan.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <h2>Bergabunglah Dengan Komunitas Kami</h2>
+        <p>Dapatkan update terbaru tentang produk, diskon eksklusif, dan pengetahuan tentang kopi langsung ke inbox Anda.</p>
+        <form class="newsletter-form" id="newsletterForm">
+            <input type="email" placeholder="Alamat email Anda" class="newsletter-input" required>
+            <button type="submit" class="newsletter-btn">Berlangganan</button>
+        </form>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <div class="footer-logo">PT. Biji Kopi Internasional</div>
+                <p>Kami berdedikasi untuk menghadirkan biji kopi berkualitas tinggi dari seluruh dunia kepada pecinta kopi di Indonesia.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h3>Tautan Cepat</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#products">Produk</a></li>
+                    <li><a href="#process">Proses</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                    <li><a href="#plan"></a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Kontak Kami</h3>
+                <ul class="footer-links">
+                    <li><i class="fas fa-map-marker-alt"></i> Jakarta, Indonesia</li>
+                    <li><i class="fas fa-phone"></i> +62 859-5942-7439</li>
+                    <li><i class="fas fa-envelope"></i> ptbijikopiinternational@gmail.com</li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Jam Operasional</h3>
+                <ul class="footer-links">
+                    <li>Senin - Jumat: 9:00 - 18:00</li>
+                    <li>Sabtu: 10:00 - 15:00</li>
+                    <li>Minggu: Tutup</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 PT. Biji Kopi Internasional. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.textContent = navLinks.classList.contains('active') ? '✕' : '☰';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.textContent = '☰';
+            });
+        });
+
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Scroll to sections
+        document.getElementById('scrollDown').addEventListener('click', () => {
+            scrollToSection('about');
+        });
+
+        function scrollToSection(sectionId) {
+            document.getElementById(sectionId).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        // Animate elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.product-card, .step, .hero-content');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animate');
+                }
+            });
+        }
+
+        // Initial animation for hero content
+        setTimeout(() => {
+            document.querySelector('.hero-content').classList.add('animate');
+        }, 300);
+
+        window.addEventListener('scroll', animateOnScroll);
+        animateOnScroll(); // Run once on load
+
+        // Testimonial slider
+        const testimonialTrack = document.getElementById('testimonialTrack');
+        const dots = document.querySelectorAll('.slider-dot');
+        let currentIndex = 0;
+
+        function updateTestimonialSlider() {
+            testimonialTrack.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        dots.forEach(dot => {
+            dot.addEventListener('click', function() {
+                currentIndex = parseInt(this.getAttribute('data-index'));
+                updateTestimonialSlider();
+            });
+        });
+
+        // Auto slide
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % dots.length;
+            updateTestimonialSlider();
+        }, 5000);
+
+        // Newsletter form
+        const newsletterForm = document.getElementById('newsletterForm');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('.newsletter-input').value;
+            
+            // In a real app, you would send this to your server
+            alert(`Terima kasih telah berlangganan dengan email ${email}. Kami akan menghubungi Anda segera!`);
+            this.querySelector('.newsletter-input').value = '';
+        });
+
+        // Smooth scrolling for all links with hashes
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
